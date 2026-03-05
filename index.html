@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Profile Card</title>
+    <!-- Adding Font Awesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Styling Section */
         :root {
-            /* Updated to Lavender and Blue palette */
             --primary-gradient: linear-gradient(135deg, #E6E6FA 0%, #B0C4DE 100%);
             --accent-blue: #4A90E2;
             --accent-lavender: #9370DB;
             --card-bg: #ffffff;
             --text-main: #2C3E50;
             --text-muted: #5D6D7E;
+            --transition: all 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--primary-gradient);
             height: 100vh;
             margin: 0;
@@ -34,78 +36,158 @@
 
         .profile-card {
             background: var(--card-bg);
-            /* Made the box bigger and more rectangular */
-            width: 500px;
+            width: 450px;
             max-width: 90%;
             padding: 3rem 2rem;
-            border-radius: 12px; /* Slightly more rectangular */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             text-align: center;
-            
-            /* Subtle entry animation */
-            animation: fadeIn 1.2s ease-out;
-            transition: box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
+            transition: var(--transition);
+            position: relative;
         }
 
         .profile-card:hover {
-            box-shadow: 0 15px 40px rgba(147, 112, 219, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(147, 112, 219, 0.15);
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
         }
 
         .profile-image {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #f8f9fa;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 18px;
+            height: 18px;
+            background: #2ECC71;
+            border: 3px solid #fff;
+            border-radius: 50%;
         }
 
         .student-name {
             margin: 0.5rem 0;
             font-size: 1.8rem;
-            color: var(--accent-lavender);
-            letter-spacing: -0.5px;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         .student-stream {
-            font-weight: 700;
-            color: var(--accent-blue);
+            font-weight: 600;
+            color: var(--accent-lavender);
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
             display: block;
         }
 
         .student-bio {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.6;
-            margin: 0 auto;
-            max-width: 400px;
+            margin-bottom: 2rem;
         }
 
-        /* Decorative line */
-        .divider {
-            height: 2px;
-            width: 50px;
-            background: var(--primary-gradient);
-            margin: 1.5rem auto;
-            border-radius: 2px;
+        /* Contact & Social Section */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-icon {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-blue);
+            transform: scale(1.2);
+        }
+
+        /* Action Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-lavender), var(--accent-blue));
+            color: white;
+            box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(147, 112, 219, 0.4);
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #E0E6ED;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-lavender);
+            color: var(--accent-lavender);
         }
     </style>
 </head>
 <body>
 
     <div class="profile-card">
-        <img src="https://via.placeholder.com/150/E6E6FA/4A90E2?text=Student" alt="Profile Image" class="profile-image">
+        <div class="profile-image-container">
+            <img src="https://via.placeholder.com/150/E6E6FA/4A90E2?text=Student" alt="Profile Image" class="profile-image">
+            <div class="status-dot"></div>
+        </div>
+
         <h1 class="student-name">Jane Doe</h1>
         <span class="student-stream">Computer Science & Engineering</span>
-        <div class="divider"></div>
+        
         <p class="student-bio">
-            Passionate about UI/UX design and full-stack development. Currently exploring the intersection of Lavender aesthetics and Blue-themed system architectures.
+            Aspiring Software Engineer focused on building elegant, user-centric solutions. Passionate about AI, modern UI/UX, and creative coding.
         </p>
+
+        <div class="social-links">
+            <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary">Connect</button>
+            <button class="btn btn-outline">Portfolio</button>
+        </div>
     </div>
 
 </body>
