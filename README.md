@@ -1,5 +1,7 @@
 # Student Profile Card Project
 
+![Project Screenshot](screenshot.png)
+
 A modern, responsive, and aesthetically pleasing Student Profile Card built with HTML and CSS. This project demonstrates clean UI design principles, including gradients, soft shadows, and subtle animations.
 
 ## ✨ Features
