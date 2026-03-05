@@ -1,9 +1,8 @@
 # Student Profile Card Project
 
-![Vibe Coding](https://img.shields.io/badge/Vibe-Coded-blueviolet?style=for-the-badge)
 ![Project Screenshot](screenshot.png)
 
-This is a **Vibe Coded** project—a modern, responsive, and aesthetically pleasing Student Profile Card built with HTML and CSS. It demonstrates clean UI design principles, including gradients, soft shadows, and subtle animations, all shaped through iterative natural language refinement.
+A modern, responsive, and aesthetically pleasing Student Profile Card built with HTML and CSS. This project demonstrates clean UI design principles, including gradients, soft shadows, and subtle animations.
 
 ## ✨ Features
 
@@ -31,3 +30,13 @@ This is a **Vibe Coded** project—a modern, responsive, and aesthetically pleas
 ## 🚀 How to View
 
 To view the profile card, simply open the `index.html` file in any modern web browser.
+
+---
+
+## 🤖 Development Process
+
+This project was completed as part of an assignment to gain familiarity with AI tools and natural language-driven development. 
+
+![Vibe Coded](https://img.shields.io/badge/Vibe-Coded-blueviolet?style=for-the-badge)
+
+It is a **Vibe Coded** project, meaning it was built and iteratively refined through conversation with an AI assistant to achieve a specific aesthetic and functional goal.
