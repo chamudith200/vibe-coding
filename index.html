@@ -9,13 +9,27 @@
     <style>
         /* CSS Styling Section */
         :root {
+            /* Default Lavender Theme */
             --primary-gradient: linear-gradient(135deg, #E6E6FA 0%, #B0C4DE 100%);
             --accent-blue: #4A90E2;
             --accent-lavender: #9370DB;
             --card-bg: #ffffff;
             --text-main: #2C3E50;
             --text-muted: #5D6D7E;
+            --card-border: none;
+            --card-blur: 0;
             --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --accent-blue: #38bdf8;
+            --accent-lavender: #818cf8;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+            --card-blur: 0;
         }
 
         @keyframes fadeIn {
@@ -32,10 +46,52 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            transition: background 0.5s ease;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(var(--card-blur));
+            border: var(--card-border);
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .theme-btn:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        .theme-btn.active {
+            background: var(--accent-lavender);
+            color: white;
         }
 
         .profile-card {
             background: var(--card-bg);
+            backdrop-filter: blur(var(--card-blur));
+            border: var(--card-border);
             width: 550px;
             max-width: 95%;
             padding: 3.5rem 2.5rem;
@@ -165,6 +221,15 @@
 </head>
 <body>
 
+    <div class="theme-switcher">
+        <button class="theme-btn active" onclick="setTheme('default')" title="Light Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="theme-btn" onclick="setTheme('dark')" title="Dark Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <div class="profile-card">
         <div class="profile-image-container">
             <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Thenura&backgroundColor=E6E6FA" alt="Profile Image" class="profile-image">
@@ -190,5 +255,21 @@
         </div>
     </div>
 
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            
+            // Update active button state
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const activeBtn = theme === 'default' 
+                ? document.querySelector('button[onclick="setTheme(\'default\')"]')
+                : document.querySelector('button[onclick="setTheme(\'dark\')"]');
+            
+            activeBtn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
