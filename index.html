@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Card</title>
+    <style>
+        /* CSS Styling Section */
+        :root {
+            /* Updated to Lavender and Blue palette */
+            --primary-gradient: linear-gradient(135deg, #E6E6FA 0%, #B0C4DE 100%);
+            --accent-blue: #4A90E2;
+            --accent-lavender: #9370DB;
+            --card-bg: #ffffff;
+            --text-main: #2C3E50;
+            --text-muted: #5D6D7E;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-gradient);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            /* Made the box bigger and more rectangular */
+            width: 500px;
+            max-width: 90%;
+            padding: 3rem 2rem;
+            border-radius: 12px; /* Slightly more rectangular */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            
+            /* Subtle entry animation */
+            animation: fadeIn 1.2s ease-out;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            box-shadow: 0 15px 40px rgba(147, 112, 219, 0.2);
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f8f9fa;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .student-name {
+            margin: 0.5rem 0;
+            font-size: 1.8rem;
+            color: var(--accent-lavender);
+            letter-spacing: -0.5px;
+        }
+
+        .student-stream {
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .student-bio {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        /* Decorative line */
+        .divider {
+            height: 2px;
+            width: 50px;
+            background: var(--primary-gradient);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="https://via.placeholder.com/150/E6E6FA/4A90E2?text=Student" alt="Profile Image" class="profile-image">
+        <h1 class="student-name">Jane Doe</h1>
+        <span class="student-stream">Computer Science & Engineering</span>
+        <div class="divider"></div>
+        <p class="student-bio">
+            Passionate about UI/UX design and full-stack development. Currently exploring the intersection of Lavender aesthetics and Blue-themed system architectures.
+        </p>
+    </div>
+
+</body>
+</html>
