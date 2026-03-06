@@ -12,7 +12,7 @@ A high-fidelity, interactive **Student Profile Card** built with a focus on mode
 
 ## 🎯 Project Purpose
 
-The primary objective of this project is to explore and demonstrate the current **capabilities of Artificial Intelligence in software development**. By utilizing AI as a "pair programmer," this repository showcases:
+The primary objective of this project is to explore and demonstrate the current **capabilities of Artificial Intelligence in software development**. Developed as a **University Assignment**, this repository showcases:
 *   How AI can interpret high-level aesthetic descriptions into production-ready CSS.
 *   The efficiency of AI in implementing logical systems like theme switching.
 *   The potential for AI to bridge the gap between creative vision and technical implementation.
